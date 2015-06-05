@@ -1,0 +1,37 @@
+{{extend 'layout.html'}}
+{{block breadcrumb}}
+<ul class="breadcrumb">
+    <li><a href="{{=URL('project', 'index')}}">Projects</a></li>
+    <li>Create</li>
+</ul>
+{{end}}
+<h1>New Project</h1>
+<p></p>
+<form action="" enctype="multipart/form-data" method="post">
+    <h3>Title</h3>
+    <input name="title"
+           class="string title-long {{=('error clarified' if form.errors.title else '')}}" 
+           placeholder="Title"
+           type="text"
+           value="{{=request.vars.title or ''}}">
+    {{ if form.errors.title: }}
+    <br><small class="error-message">{{ =form.errors.title }}</small>
+    {{ pass }}
+
+    <h3>Description</h3>
+    <textarea name="contents"
+              class="string title-long {{=('error clarified' if form.errors.title else '')}}" 
+              placeholder="Description"
+              type="text">{{=request.vars.title or ''}}</textarea>
+    {{ if form.errors.contents: }}
+    <small class="error-message">{{ =form.errors.contents }}</small><br>
+    {{ pass }}
+
+    <br>
+    <input type="submit" value="Go">
+    <div style="display:none;">
+        <!-- Web2py Values -->
+        <input name="_formkey" type="hidden" value="{{ =formkey }}">
+        <input name="_formname" type="hidden" value="new-project">
+    </div>
+</form>

@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+{{block breadcrumb}}
+<ul class="breadcrumb">
+    <li><a href="{{=URL('project', 'index')}}">Projects</a></li>
+    <li>{{=project.title}}</li>
+</ul>
+{{end}}
+<h1>{{=project.title}}</h1>
+<p>{{=project.contents}}</p>
+
+{{if notes.get_child_count(project) > 0:}}
+{{for note in notes.get_children(project):}}
+{{=note.title}}
+{{pass}}
+{{else:}}
+<p>Add some notes!</p>
+{{pass}}

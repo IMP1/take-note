@@ -1,0 +1,40 @@
+ul.horizontal, ul.horizontal > li {
+    display: inline-block;
+}
+
+ul.breadcrumb > li {
+    display: inline-block;
+}
+ul.breadcrumb > li:nth-child(n+2)::before {
+    content: ' > ';
+}
+
+
+/*
+    Navbar
+*/
+
+div#navbar {
+    border-bottom: 1px solid black;
+}
+
+div#navbar > span {
+    font-weight: bold;
+    display: inline-block;
+    font-size: 1.4rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+
+div#navbar > ul > li {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+}
+
+/*
+    Main Content
+*/
+main {
+    margin-left: 20%;
+    margin-right: 20%;
+}
