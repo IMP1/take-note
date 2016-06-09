@@ -6,6 +6,7 @@
         <title>{{=response.title or 'Take Note'}}</title>
         {{block styles}}
         <link rel="stylesheet" href="{{=URL('static', 'css/default.css')}}" type="text/css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="{{=URL('static', 'css/puff.css')}}" type="text/css">
         <link rel="stylesheet" href="{{=URL('static', 'css/layout.css')}}" type="text/css">
         {{end}}
@@ -16,8 +17,8 @@
                 <div id="navbar">
                     <span>Take Note</span>
                     <ul class="horizontal">
-                        <li><a href="{{=URL('default', 'index')}}">Home</a></li>
-                        <li><a href="{{=URL('project', 'create')}}">New Project</a></li>
+                        <li><a href="{{=URL('default', 'index')}}"><span class="fa fa-home"></span>Home</a></li>
+                        <li><a href="{{=URL('project', 'create')}}"><span class="fa fa-plus"></span>New Project</a></li>
                     </ul>
                 </div>
                 {{block breadcrumb}}

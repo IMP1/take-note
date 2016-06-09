@@ -1,17 +1,17 @@
 {{extend 'layout.html'}}
 <h1>Take Note</h1>
+<p>Take Note is inspired by sites like Trello and WorkFlowy, and seeks to kinda combine the two, with a bit of fairy dust sprinkled over the top. And also only ever used by me. Hey me!</p>
 <h2>My Projects</h2>
 {{if projects.get_count() > 0:}}
-<ul>
+<ul class="card-list">
     {{for project in projects.get_projects():}}
-    <li>
+    <li class="project">
         <a href="{{=URL('project', 'view', args=[project.id])}}">{{=project.title}}</a>
     </li>
     {{pass}}
 </ul>
 {{else:}}
 <p>
-    You have no projects. 
-    Why not <a href="{{=URL('project', 'create')}}"> make one</a>?
+    You have no projects. Why not <a href="{{=URL('project', 'create')}}"> make one</a>?
 </p>
 {{pass}}

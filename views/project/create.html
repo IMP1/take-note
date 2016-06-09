@@ -13,6 +13,7 @@
            class="string title-long {{=('error clarified' if form.errors.title else '')}}" 
            placeholder="Title"
            type="text"
+           autofocus
            value="{{=request.vars.title or ''}}">
     {{ if form.errors.title: }}
     <br><small class="error-message">{{ =form.errors.title }}</small>
@@ -20,15 +21,15 @@
 
     <h3>Description</h3>
     <textarea name="contents"
-              class="string title-long {{=('error clarified' if form.errors.title else '')}}" 
+              class="string summary-short  {{=('error clarified' if form.errors.contents else '')}}" 
               placeholder="Description"
-              type="text">{{=request.vars.title or ''}}</textarea>
+              type="text">{{=request.vars.contents or ''}}</textarea>
     {{ if form.errors.contents: }}
     <small class="error-message">{{ =form.errors.contents }}</small><br>
     {{ pass }}
 
     <br>
-    <input type="submit" value="Go">
+    <input type="submit" value="Create Project">
     <div style="display:none;">
         <!-- Web2py Values -->
         <input name="_formkey" type="hidden" value="{{ =formkey }}">

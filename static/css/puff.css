@@ -239,7 +239,8 @@ Inputs
     input[type="color"],
     input[type="time"],
     input[type="search"],
-    input[type="datetime-local"] {
+    input[type="datetime-local"],
+    a.button {
         font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
         font-size: 1em;
         line-height: 1.1rem;
@@ -266,7 +267,8 @@ Inputs
     input[type="color"],
     input[type="time"],
     input[type="search"],
-    input[type="datetime-local"] {
+    input[type="datetime-local"],
+    a.button {
         background: #fff;
         border: 1px solid #ccc;
         position: relative;
@@ -308,7 +310,8 @@ Inputs
     input[type="time"]:focus,
     input[type="search"]:focus,
     input[type="datetime-local"]:focus,
-    textarea:focus {
+    textarea:focus,
+    a.button:focus {
         outline: 0;
         border-color: #2575ed;
         box-shadow: 0 0 2px rgba(37, 117, 237, 0.3), 0 0 2px rgba(37, 117, 237, 0.3) inset;
@@ -339,7 +342,8 @@ Inputs
     ----------------------------------------------*/
     button,
     input[type="button"],
-    input[type="submit"] {
+    input[type="submit"],
+    a.button {
         display: inline-block;
         font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
         font-size: 100%;
@@ -362,25 +366,30 @@ Inputs
     input[type="button"]:active,
     input[type="button"]:focus,
     input[type="submit"]:active,
-    input[type="submit"]:focus {
+    input[type="submit"]:focus,
+    a.button:active,
+    a.button:focus {
         outline: none;
         box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
         border: 1px solid #2575ed;
     }
     button:hover,
     input[type="button"]:hover,
-    input[type="submit"]:hover {
+    input[type="submit"]:hover,
+    a.button:hover {
         color: rgba(0, 0, 0, 0.7);
         background: #c1c1c1;
     }
     button:focus,
     input[type="button"]:focus,
-    input[type="submit"]:focus {
+    input[type="submit"]:focus,
+    a.button:focus {
         color: #de2b3a;
     }
     button:disabled, button:disabled:hover,
     input[type="button"]:disabled, input[type="button"]:disabled:hover,
-    input[type="submit"]:disabled, input[type="submit"]:disabled:hover {
+    input[type="submit"]:disabled, input[type="submit"]:disabled:hover,
+    a.button:disabled, a.button:disabled:hover {
         color: rgba(0, 0, 0, 0.4);
         background: #bbb;
         border: 1px solid #aaa;
@@ -388,7 +397,8 @@ Inputs
     }
     button:active:hover,
     input[type="button"]:active:hover,
-    input[type="submit"]:active:hover {
+    input[type="submit"]:active:hover,
+    a.button:active:hover {
         padding-left: 6px;
         padding-right: 6px;
     }
@@ -692,63 +702,74 @@ Centralised Things
     Forms
     --------------------------------------*/
     .date-long {
-        width: 4em;
+        width: 4rem;
     }
     .date-short {
-        width: 2.5em;
+        width: 2.5rem;
     }
     .name-long {
-        width: 14em;
+        width: 14rem;
     }
     .name-short {
-        width: 12em;
+        width: 12rem;
     }
     .address-long {
-        width: 16em;
+        width: 16rem;
     }
     .address-short {
-        width: 12em;
+        width: 12rem;
     }
     .postcode-short {
-        width: 3.5em;
+        width: 3.5rem;
     }
     .postcode-long {
-        width: 4.5em;
+        width: 4.5rem;
     }
     .price-long {
-        width: 7em;
+        width: 7rem;
     }
     .price-short {
-        width: 4em;
+        width: 4rem;
     }
     .credit-card-long {
-        width: 12em;
+        width: 12rem;
     }
     .credit-card-short {
-        width: 3.5em;
+        width: 3.5rem;
     }
     .title-long {
-        width: 20em;
+        width: 20rem;
+    }
+    .title-short {
+        width: 12rem;
     }
     .category-long {
-        width: 11em;
-        margin-left: 0.4em;
+        width: 11rem;
+        margin-left: 0.4rem;
+    }
+    .summary-vert-short {
+        width: 12rem;
+        height: 12rem;
+    }
+    .summary-vert-long {
+        width: 20rem;
+        height: 12rem;
     }
     .summary-small {
-        width: 20em;
-        height: 9.3em;
+        width: 20rem;
+        height: 9.3rem;
     }
     .summary-short {
-        width: 32em;
-        height: 7em;
+        width: 32rem;
+        height: 7rem;
     }
     .summary-long {
-        width: 32em;
-        height: 12em;
+        width: 32rem;
+        height: 12rem;
     }
     .description-long {
-        width: 39.3em;
-        height: 10em;
+        width: 39.3rem;
+        height: 10rem;
     }
     @keyframes highlight-border-red {
         0%   {border-color: #f00;}
