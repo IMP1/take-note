@@ -28,33 +28,61 @@
 </form>
 
 <ul class="card-list">
-    <li class="note">
-        <form action="" enctype="multipart/form-data" method="post">
-            <h3>Add Note</h3>
-            <input name="title"
-                   class="string title-short {{=('error clarified' if form.errors.title else '')}}" 
-                   placeholder="Title"
-                   type="text"
-                   value="{{=request.vars.title or ''}}">
-            {{ if form.errors.title: }}
-            <br><small class="error-message">{{ =form.errors.title }}</small>
-            {{ pass }}
-            <textarea name="contents"
-                      class="string summary-vert-short {{=('error clarified' if form.errors.contents else '')}}" 
-                      placeholder="Description"
-                      type="text">{{=request.vars.contents or ''}}</textarea>
-            {{ if form.errors.contents: }}
-            <small class="error-message">{{ =form.errors.contents }}</small><br>
-            {{ pass }}
-            <input type="submit" class="title-short" value="Add Note">
-            <div style="display:none;">
-                <!-- Web2py Values -->
-                <input name="_formkey" type="hidden" value="{{=formkey}}">
-                <input name="_formname" type="hidden" value="new-note">
-                <!-- Hidden Values -->
-                <input name="parent" type="number" value="{{=note.id}}">
-            </div>
-        </form>
+    <li class="actions">
+        <div class="note">
+            <form action="" enctype="multipart/form-data" method="post">
+                <h3>Add Note</h3>
+                <input name="title"
+                       class="string title-short {{=('error clarified' if form.errors.title else '')}}" 
+                       placeholder="Title"
+                       type="text"
+                       value="{{=request.vars.title or ''}}">
+                {{ if form.errors.title: }}
+                <br><small class="error-message">{{ =form.errors.title }}</small>
+                {{ pass }}
+                <textarea name="contents"
+                          class="string summary-vert-short {{=('error clarified' if form.errors.contents else '')}}" 
+                          placeholder="Description"
+                          type="text">{{=request.vars.contents or ''}}</textarea>
+                {{ if form.errors.contents: }}
+                <small class="error-message">{{ =form.errors.contents }}</small><br>
+                {{ pass }}
+                <input type="submit" class="title-short" value="Add Note">
+                <div style="display:none;">
+                    <!-- Web2py Values -->
+                    <input name="_formkey" type="hidden" value="{{=formkey}}">
+                    <input name="_formname" type="hidden" value="new-note">
+                    <!-- Hidden Values -->
+                    <input name="parent" type="number" value="{{=note.id}}">
+                </div>
+            </form>
+        </div>
+        <div class="note">
+            <form>
+                <h3>Add Direct Child</h3>
+                <p class="title-short small">
+                    This adds a child to <em>{{=note.title}}</em> and places all the existing children into that new child.
+                </p>
+                <input id="insert-title"
+                       class="string title-short"
+                       placeholder="Title"
+                       type="text">
+                <br>
+                <input type="button" class="title-short" value="Add Child" onclick="tryInsert({{=note.id}});">
+            </form>
+        </div>
+        <div class="note">
+            <form>
+                <h3>Move Note</h3>
+                <select id="move-note">
+                    {{ for move in notes.get_moveable_notes(note): }}
+                    <option value="{{=move.id}}">{{=move.title}}</option>
+                    {{ pass }}
+                </select>
+                <br>
+                <input type="button" class="title-short" value="Move to Note" onclick="tryMove({{=note.id}});">
+            </form>
+        </div>
     </li>
     {{for note in notes.get_children(note):}}
     <li class="note">
@@ -68,4 +96,6 @@
 {{block scripts}}
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="{{=URL('static', 'js/onpage-edit.js')}}" type="text/javascript"></script>
+<script src="{{=URL('static', 'js/onpage-insert.js')}}" type="text/javascript"></script>
+<script src="{{=URL('static', 'js/onpage-move.js')}}" type="text/javascript"></script>
 {{end}}

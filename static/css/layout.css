@@ -58,6 +58,10 @@ ul.card-list > li {
     border-radius: 0.5em;
 }
 
+.actions > .note {
+    display: block;
+}
+
 .note > form {
     margin: 1em;
 }
@@ -92,13 +96,16 @@ ul.card-list > li {
 
 .note > a > h3 {
     width: 14rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .note > a > p {
+    text-overflow: ellipsis;
     margin-bottom: 0;
     width: 14rem;
     height: 5.4rem;
-    text-overflow: ellipsis;
     overflow-y: hidden;
 }
 

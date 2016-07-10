@@ -33,3 +33,16 @@ def edit():
     new_desc = request.vars.description
     db.note(id).update_record(title=new_title, contents=new_desc)
     return DIV(H1(new_title), P(new_desc))
+
+def insert():
+    note_id = request.vars.id
+    children = notes.get_children(note_id)
+    new_parent = db.note.insert(title=request.vars.title, contents=request.vars.description, parent=note_id)
+    for child in children:
+        db.note(child.id).update_record(parent=new_parent)
+    return new_parent
+
+def move():
+    id = request.vars.id
+    new_parent = request.vars.parent
+    db.note(id).update_record(parent=new_parent)

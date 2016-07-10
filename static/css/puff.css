@@ -462,11 +462,6 @@ header h1.title-small {
     text-align: center;
 }
 
-.proviso {
-    color: #888;
-    font-size: 0.8em;
-}
-
 section > h2 {
     text-align: center;
 }
@@ -515,6 +510,7 @@ label > input[type="file"] {
     padding: 1em;
 }
 
+.proviso,
 small,
 .small {
     font-size: 0.8em;
@@ -523,6 +519,9 @@ small,
 }
 div.small {
     margin-bottom: 0.4em;
+}
+p.small {
+    margin-bottom: 0.6em;
 }
 
 .unlabled {
