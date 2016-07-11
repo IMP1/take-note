@@ -52,6 +52,10 @@ ul.card-list > li {
     margin-bottom: 1rem;
 }
 
+#note-info > p {
+    white-space: pre-line;
+}
+
 .note {
     display: inline-block;
     border: 1px solid black;
