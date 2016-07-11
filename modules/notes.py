@@ -81,7 +81,7 @@ def get_contents_html(note):
     if isinstance(note, (long, int)):
         note = db.note(note)
     base_url = str(URL('project', 'view'))
-    result = XML(re.sub(r"{((.+):)?(\d+)}", "<a href=\"" + base_url + r"/\3\">\2</a>", note.contents or ""))
+    result = XML(re.sub(r"{((.+?):)?(\d+)}", "<a href=\"" + base_url + r"/\3\">\2</a>", note.contents or ""))
     return result
 
 def get_contents_plain(note):
@@ -89,5 +89,5 @@ def get_contents_plain(note):
     if isinstance(note, (long, int)):
         note = db.note(note)
     base_url = str(URL('project', 'view'))
-    result = re.sub(r"{((.+):)?\d+}", r"\2", note.contents or "")
+    result = re.sub(r"{((.+?):)?\d+}", r"\2", note.contents or "")
     return result    

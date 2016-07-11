@@ -32,7 +32,7 @@ def edit():
     new_title = request.vars.title
     new_desc = request.vars.description
     db.note(id).update_record(title=new_title, contents=new_desc)
-    return DIV(H1(new_title), P(new_desc))
+    return DIV(H1(new_title), P(notes.get_contents_html(db.note(id))))
 
 def insert():
     note_id = request.vars.id
