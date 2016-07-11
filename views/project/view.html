@@ -15,7 +15,7 @@
 <button id="edit-toggle-button" onclick="openEditView();">Edit</button>
 <div id="note-info">
     <h1>{{=note.title}}</h1>
-    <p>{{=note.contents}}</p>
+    <p>{{=notes.get_contents_html(note)}}</p>
 </div>
 <form id="note-info-edit" style="display: none;">
     <input id="edit-title" 
@@ -74,7 +74,7 @@
         <div class="note">
             <form>
                 <h3>Move Note</h3>
-                <select id="move-note">
+                <select id="move-note" class="title-short">
                     {{ for move in notes.get_moveable_notes(note): }}
                     <option value="{{=move.id}}">{{=move.title}}</option>
                     {{ pass }}
@@ -88,7 +88,7 @@
     <li class="note">
         <a href="{{=URL('project', 'view', args=[note.id])}}">
             <h3>{{=note.title}}</h3>
-            <p>{{=note.contents}}</p>
+            <p>{{=notes.get_contents_plain(note)}}</p>
         </a>
     </li>
     {{pass}}

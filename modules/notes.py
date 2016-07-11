@@ -75,3 +75,19 @@ def get_project(note):
     else:
         parent = db(db.note.id == note.parent).select().first()
         return get_project(parent)
+
+def get_contents_html(note):
+    import re
+    if isinstance(note, (long, int)):
+        note = db.note(note)
+    base_url = str(URL('project', 'view'))
+    result = XML(re.sub(r"{((.+):)?(\d+)}", "<a href=\"" + base_url + r"/\3\">\2</a>", note.contents))
+    return result
+
+def get_contents_plain(note):
+    import re
+    if isinstance(note, (long, int)):
+        note = db.note(note)
+    base_url = str(URL('project', 'view'))
+    result = re.sub(r"{((.+):)?\d+}", r"\2", note.contents)
+    return result    
